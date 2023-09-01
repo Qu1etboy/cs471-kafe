@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import ku.cs.kafe.entity.Member;
+import ku.cs.kafe.model.SignupRequest;
 import ku.cs.kafe.service.SignupService;
 
 @Controller
@@ -21,7 +21,7 @@ public class SignupController {
   }
 
   @PostMapping("/signup")
-  public String signupUser(@ModelAttribute Member user, Model model) {
+  public String signupUser(@ModelAttribute SignupRequest user, Model model) {
 
     if (signupService.isUsernameAvailable(user.getUsername())) {
       signupService.createUser(user);
