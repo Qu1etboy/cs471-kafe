@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ku.cs.kafe.common.Status;
 import ku.cs.kafe.entity.Menu;
@@ -16,6 +17,7 @@ import ku.cs.kafe.repository.MenuRepository;
 import ku.cs.kafe.repository.OrderItemRepository;
 import ku.cs.kafe.repository.PurchaseOrderRepository;
 
+@Service
 public class OrderService {
 
   @Autowired
