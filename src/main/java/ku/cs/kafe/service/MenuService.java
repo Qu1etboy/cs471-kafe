@@ -1,6 +1,7 @@
 package ku.cs.kafe.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class MenuService {
 
   public List<Menu> getAllMenus() {
     return menuRepository.findAll();
+  }
+
+  public Menu getOneById(UUID id) {
+    return menuRepository.findById(id).get();
   }
 
   public void createMenu(MenuRequest menu) {

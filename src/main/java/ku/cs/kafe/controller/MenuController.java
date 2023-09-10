@@ -1,13 +1,17 @@
 package ku.cs.kafe.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ku.cs.kafe.entity.Menu;
 import ku.cs.kafe.model.MenuRequest;
 import ku.cs.kafe.service.CategoryService;
 import ku.cs.kafe.service.MenuService;
@@ -28,6 +32,13 @@ public class MenuController {
 
     // model.addAttribute("menus", menuService.getAllMenus());
     return "menu-all";
+  }
+
+  @GetMapping("/{id}")
+  public String getOneMenu(@PathVariable UUID id, Model model) {
+    Menu menu = menuService.getOneById(id);
+    model.addAttribute("menu", menu);
+    return "menu-view";
   }
 
   @GetMapping("/add")
